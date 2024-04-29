@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqb2a20dqa7kn"]
+
+[ext_resource type="Script" path="res://scripts/debugCollectable.gd" id="1_w3akh"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_8e15a"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1kbbx"]
+
+[node name="debugCollectable" type="Area3D"]
+script = ExtResource("1_w3akh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_8e15a")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_1kbbx")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

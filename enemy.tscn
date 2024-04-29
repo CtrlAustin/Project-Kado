@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://dqxlj28qrv1ln"]
+
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_iq1fs"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6rud3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_411gd"]
+albedo_color = Color(1, 0.0823529, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_027mi"]
+material = SubResource("StandardMaterial3D_411gd")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_krjx7"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ppqr3"]
+material = SubResource("StandardMaterial3D_krjx7")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5ce1p"]
+
+[node name="enemy" type="CharacterBody3D"]
+script = ExtResource("1_iq1fs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_6rud3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_027mi")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.318614, 0, 0, 0, 0.357354, 0, 0, 0, 0.517069, 0, 0, -0.583451)
+mesh = SubResource("BoxMesh_ppqr3")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_5ce1p")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

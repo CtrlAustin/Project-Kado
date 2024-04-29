@@ -1,0 +1,168 @@
+[gd_scene load_steps=7 format=3 uid="uid://rykv8jibye8m"]
+
+[ext_resource type="Script" path="res://scripts/playerController.gd" id="1_k53cm"]
+[ext_resource type="Texture2D" uid="uid://bwu0vwobs83sr" path="res://debugTextures/debug.png" id="2_am7m5"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_2unma"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yo5bo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_okpgc"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_4bfim"]
+
+[node name="player" type="CharacterBody3D"]
+script = ExtResource("1_k53cm")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_2unma")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_yo5bo")
+
+[node name="CameraController" type="Node3D" parent="."]
+top_level = true
+
+[node name="CameraTarget" type="Node3D" parent="CameraController"]
+transform = Transform3D(1, 0, 0, 0, 0.995561, 0.0941253, 0, -0.0941253, 0.995561, 0, 2.82342, 5.16028)
+
+[node name="Camera3D" type="Camera3D" parent="CameraController/CameraTarget"]
+
+[node name="RayCast3D" type="RayCast3D" parent="CameraController/CameraTarget/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="CameraController/CameraTarget"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CameraController/CameraTarget/RigidBody3D"]
+shape = SubResource("BoxShape3D_okpgc")
+
+[node name="gun" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.24993, 0, 0, 0, 0.25274, 0, 0, 0, 1, 0.607992, 0.565321, -1.0821)
+mesh = SubResource("BoxMesh_4bfim")
+
+[node name="RayCast3D" type="RayCast3D" parent="gun"]
+
+[node name="Cards" type="CanvasLayer" parent="."]
+
+[node name="card3" type="TextureRect" parent="Cards"]
+offset_left = 329.0
+offset_top = 463.0
+offset_right = 483.0
+offset_bottom = 701.0
+rotation = 0.701786
+scale = Vector2(1.0688, 1.05388)
+texture = ExtResource("2_am7m5")
+expand_mode = 1
+
+[node name="card2" type="TextureRect" parent="Cards"]
+offset_left = 174.351
+offset_top = 389.0
+offset_right = 328.351
+offset_bottom = 627.0
+rotation = 0.436298
+scale = Vector2(1.0688, 1.05388)
+texture = ExtResource("2_am7m5")
+expand_mode = 1
+
+[node name="card1" type="TextureRect" parent="Cards"]
+offset_left = 6.35097
+offset_top = 351.0
+offset_right = 160.351
+offset_bottom = 589.0
+rotation = 0.214341
+scale = Vector2(1.0688, 1.05388)
+texture = ExtResource("2_am7m5")
+expand_mode = 1
+
+[node name="ammo" type="TextureProgressBar" parent="Cards"]
+offset_left = 464.0
+offset_top = 598.0
+offset_right = 1264.0
+offset_bottom = 1398.0
+texture_progress = ExtResource("2_am7m5")
+
+[node name="Container" type="Control" parent="Cards"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="crosshair" type="TextureRect" parent="Cards/Container"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 30.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_am7m5")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Cards"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 36.0
+offset_top = -14.0
+offset_right = 94.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Ammo:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Cards"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 38.0
+offset_top = 8.0
+offset_right = 96.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Ammo:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="Cards"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -321.0
+offset_right = -518.0
+offset_bottom = -279.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Deck"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="Cards"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -299.0
+offset_right = -518.0
+offset_bottom = -257.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Deck"
+horizontal_alignment = 1
+vertical_alignment = 1
