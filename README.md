@@ -1,10 +1,10 @@
-# Deck-Shooter-Godot
-A simple 3rd person shooter with deck building elements and multiplayer! (soon)
+# Project Kādo
+A 1st person shooter with deck building elements and multiplayer! (soon)
+Im setting out to create a fun game to playwith your firends on those game nights when you have no idea what to play
 
 #TODO:
-* Fix big bullets
-* Add an actual deck
-* Add multiplayer
-* Make an actual ui
+* Add decks
+* ~Add multiplayer~ (DONE)
+* Add Player UI
 * Remove Dev textures
-* and a bunch more im sure
+* 3d Models and animations
